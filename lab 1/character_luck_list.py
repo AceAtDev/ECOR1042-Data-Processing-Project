@@ -42,7 +42,12 @@ def character_luck_list(name_of_the_file, luck_limit):
                     character_dict = {}
                     for i, header in enumerate(headers):
                         if header != 'Luck':
-                            character_dict[header] = character_data[i]
+                            # Convert relevant attributes to integers
+                            if header in ['Strength', 'Agility', 'Stamina', 'Intelligence', 'Personality']:
+                                # assuming attributs will always be int
+                                character_dict[header] = int(character_data[i])
+                            else:
+                                character_dict[header] = character_data[i]
 
                     # Append the character dictionary to the filtered list
                     filtered_characters.append(character_dict)
@@ -52,5 +57,6 @@ def character_luck_list(name_of_the_file, luck_limit):
 
 
     except FileExistsError:
-        print(f"{name_of_the_file} was not found, Please make sure you have inserted the correct file name")
+        print(f"{name_of_the_file} was not found, Please make sure you have inserted the correct file name and/or"
+              f"the file is with the function's folder")
         return []
