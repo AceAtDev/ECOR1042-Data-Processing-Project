@@ -43,7 +43,7 @@ def character_luck_list(name_of_the_file, luck_limit):
                     for i, header in enumerate(headers):
                         if header != 'Luck':
                             # Convert relevant attributes to integers
-                            if header in ['Strength', 'Agility', 'Stamina', 'Intelligence', 'Personality']:
+                            if header in ['Strength', 'Agility', 'Stamina', 'Intelligence', 'Personality', "Armor"]:
                                 # assuming attributs will always be int
                                 character_dict[header] = int(character_data[i])
                             else:
