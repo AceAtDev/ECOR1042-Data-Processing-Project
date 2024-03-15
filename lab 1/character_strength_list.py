@@ -14,29 +14,30 @@ __team__ = "T89"
 #==========================================#
 # Place your character_strength_list function after this line
 #==========================================#
-def character_strength_list(file_name: str, strength_range: tuple[int, int]) -> list[dict]]
+def character_strength_list(file_name: str, strength_range: tuple[int, int]) -> list[dict]:
     """ 
     Return a list of characters in the form of a dictionary whose strength is what is provided in the parameter.
-    Return empty list if range of strength does not meet parameters
-    The dictionaries keys include the labels for all the characteristics.
-
-    Preconditions:
-    Input has no errors and meets the function argumeent as well as the "characters-mat.csv" format.
-    Input has no duplicates
-    Input must have the format:
-    ['Occupation', 'Strength', 'Agility', 'Stamina', 'Personality', 'Intelligence', 'Luck', 'Armor', 'Weapon']
-
+    Return empty list if range of strength does not meet parameters.
+    The dictionary keys include every attribute except strength 
+    
+    Preconditions: 
+    Data given has no errors and has the "characters-mat.csv" format.
+    strength_range input must be in the format: tuple[int, int]
+    Output data has   ['Occupation', 'Strength', 'Agility', 'Stamina', 'Personality', 'Intelligence', 'Luck', 'Armor', 'Weapon']
+    
     Examples: 
     >>>character_strength_list ('characters-mat.csv', (10, 20))
-    [{'Occupation': 'AT', 'Agility': 2, 'Stamina': 6, 'Personality': 7, 'Intelligence': 8, 'Luck': 0.67, 'Armor': 8, 'Weapon': 'Staff'}],{other element}
+    [{'Occupation': 'AT', 'Agility': 2, 'Stamina': 6, 'Personality': 7, 'Intelligence': 8, 'Luck': 0.67, 'Armor': 8, 'Weapon': 'Staff'}],
+    {other element},
     …
+    ]
     >>>character_strength_list ('characters-mat.csv', (2000, 20000))
-    []    #empty string is the output
+    [] #empty string is the output
     >>>character_strength_list ((10, 20))
     Traceback (most recent call last):
       Python Shell, prompt 11, line 1
     builtins.TypeError: character_strength_list() missing 1 required positional argument: 'strength_range'
-
+    
     """
     
     
