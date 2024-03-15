@@ -18,7 +18,7 @@ __team__ = "T089"
 
 #==========================================#
 # Place your character_luck_list function after this line
-def character_luck_list(name_of_the_file, luck_limit):
+def character_luck_list(name_of_the_file: str, luck_limit: float) -> list[dict]:
     """
     Filters characters based on luck value.
 

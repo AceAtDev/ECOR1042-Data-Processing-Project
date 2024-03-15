@@ -17,10 +17,17 @@ __team__ = "T089"
 import string
 
 
-def character_luck_list(name_of_the_file, luck_limit):
+def character_luck_list(name_of_the_file: str, luck_limit: float) -> list[dict]:
     """
     Filters characters based on luck value.
+    Returns a list of the occupation with a threshold of luck
 
+    >>> character_data("xxx.file", 50)
+    ...
+    >>> character_data("xxx.file", 20)
+    ...
+    >>> character_data("xxx.file", 31)
+    ...
     """
     try:
         with open(name_of_the_file, 'r') as file:
