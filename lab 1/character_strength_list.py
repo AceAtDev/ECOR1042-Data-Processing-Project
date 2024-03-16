@@ -11,9 +11,10 @@ __student_number__ = "101268686"
 # Update "" with your team (e.g. T-102, use the notation provided in the example)
 __team__ = "T89"
 
-#==========================================#
+
+# ==========================================#
 # Place your character_strength_list function after this line
-#==========================================#
+# ==========================================#
 def character_strength_list(file_name: str, strength_range: tuple[int, int]) -> list[dict]:
     """ 
     Return a list of characters in the form of a dictionary whose strength is what is provided in the parameter.
@@ -39,22 +40,21 @@ def character_strength_list(file_name: str, strength_range: tuple[int, int]) -> 
     builtins.TypeError: character_strength_list() missing 1 required positional argument: 'strength_range'
     
     """
-    
-    
+
     final_list = []
     in_file = open(file_name, 'r')
     count = 0
-    
+
     strength_dict = {}
     for line in in_file:
-        line = line.replace("\n","").split(",")
+        line = line.replace("\n", "").split(",")
         if count == 0:
             titles = line
-            count+=1
+            count += 1
 
         else:
             strength_dict = {}
-            strength_dict[titles[0]] = line[0] 
+            strength_dict[titles[0]] = line[0]
             strength_dict[titles[2]] = int(line[2])
             strength_dict[titles[3]] = int(line[3])
             strength_dict[titles[4]] = int(line[4])
@@ -62,7 +62,7 @@ def character_strength_list(file_name: str, strength_range: tuple[int, int]) -> 
             strength_dict[titles[6]] = float(line[6])
             strength_dict[titles[7]] = int(line[7])
             strength_dict[titles[8]] = (line[8])
-            
+
             if strength_range[0] <= int(line[1]) <= strength_range[1]:
                 final_list.append(strength_dict)
 
