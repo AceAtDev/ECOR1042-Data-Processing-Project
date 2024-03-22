@@ -277,14 +277,12 @@ def calculate_health(characters: list) -> list:
     ...    """
     for character in characters:
         # Extract relevant attributes
-        #strength = character.get('Strength', 0)
-        strength = character['Strength']
-        luck = character['Luck']
+        strength = character.get('Strength', 0)
         agility = character.get('Agility', 0)
         stamina = character.get('Stamina', 0)
         personality = character.get('Personality', 0)
         intelligence = character.get('Intelligence', 0)
-        #luck = character.get('Luck', 0)
+        luck = character.get('Luck', 0)
         armor = character.get('Armor', 0)
 
         # Calculate health using the formula

@@ -1,84 +1,84 @@
 # ECOR 1042 Lab 4 - Individual submission for test4 function
 
-#import check module here
+# import check module here
 import check
-#import load_data module here
-import test_load_data
+import load_data as ld
+
 # Update "" with your name (e.g., Cristina Ruiz Martin)
-__author__ = ""
+__author__ = "Mohamed Elshoubky"
 
 # Update "" with your student number (e.g., 100100100)
-__student_number__ = ""
+__student_number__ = "101306451"
 
 # Update "" with your team (e.g. T-102, use the notation provided in the example)
-__team__ = ""
+__team__ = "T089"
 
-#==========================================#
-#Do not modify the code already provided.
+
+# ==========================================#
+# Do not modify the code already provided.
 
 def test_calculate_health():
     """Test calculate_health with various scenarios."""
-    # Test data
-    test_data = [
-        [{'Occupation': 'Knight', 'Luck': 7, 'Strength': 10, 'Weapon': 'Sword'}],
-        [{'Occupation': 'Mage', 'Luck': 5, 'Strength': 8, 'Weapon': 'Staff'}],
-        [{'Occupation': 'Rogue', 'Luck': 9, 'Strength': 6, 'Weapon': 'Dagger'}],
-    ]
 
-    # Test case 1: calculate_health should not change the size of the list.
-    original_size = len(test_data)
-    calculate_health(test_data)
-    check.equal(len(test_data), original_size, "Test 1: List size should remain the same")
+    file_name = "characters-test.csv"
+    data = ld.load_data(file_name, ("All", "All"))
 
-    # Test case 2: The number of keys in each dictionary should increase only by one
-    for character in test_data:
-        check.equal(len(character), 5, "Test 2: Number of keys should increase by one")
+    # Complete the function with your test cases
 
-    # Test case 3: The value for Health should be properly calculated.
-    # Assuming the health calculation formula here. Replace it with the actual formula.
-    for character in test_data:
-        expected_health = character['Luck'] * character['Strength']  # Replace with actual formula
-        check.equal(character['Health'], expected_health, "Test 3: Health should be properly calculated")
+    # test that the function does not change the lenght of the list provided as input parameter (5 different test cases required)
+    occ_data = ld.character_occupation_list(file_name, "AT")
+    occ_expected = len(occ_data)
+    check.equal(len(ld.calculate_health(occ_data)), occ_expected, f"List size ({len(occ_data)} != {occ_expected}")
 
-    # Test cases for missing keys
-    missing_keys_data = [
-        [{'Luck': 7, 'Strength': 10, 'Weapon': 'Sword'}],  # Missing 'Occupation'
-        [{'Occupation': 'Knight', 'Strength': 10, 'Weapon': 'Sword'}],  # Missing 'Luck'
-        [{'Occupation': 'Knight', 'Luck': 7, 'Weapon': 'Sword'}],  # Missing 'Strength'
-        [{'Occupation': 'Knight', 'Luck': 7, 'Strength': 10}],  # Missing 'Weapon'
-        [{'Occupation': 'Knight', 'Luck': 7, 'Strength': 10, 'Weapon': 'Sword'}],  # All keys present
-    ]
+    luck_data = ld.character_luck_list(file_name, 0.5)
+    try:
+        hd = ld.calculate_health(luck_data)
+        # check.equal(len(ld.calculate_health(luck_data)), luck_expected, f"List size ({len(luck_data)}) != {luck_expected}")
+    except:
+        # pass the test
+        check.equal(True, True)
+    else:
+        # fail the test
+        check.equal(False, True)
 
-    for i, character in enumerate(missing_keys_data, start=4):
-        original_size = len(character)
-        calculate_health(character)
-        check.equal(len(character), original_size + 1, f"Test {i}: Number of keys should increase by one")
-        # Assuming the health calculation formula here. Replace it with the actual formula.
-        expected_health = character.get('Luck', 0) * character.get('Strength', 0)  # Replace with actual formula
-        check.equal(character['Health'], expected_health, f"Test {i}: Health should be properly calculated")
+    str_data = ld.character_strength_list(file_name, (4, 10))
+    try:
+        sd = ld.calculate_health(str_data)
+    except:
+        # pass the test
+        check.equal(True, True)
+    else:
+        # fail the test
+        check.equal(False, True)
 
-    # Test case for empty list
-    empty_list = []
-    calculate_health(empty_list)
-    check.equal(len(empty_list), 0, "Test 9: Empty list should remain empty")
+    weapon_data = ld.character_weapon_list(file_name, 4)
+    weapon_expected = len(weapon_data)
+    check.equal(len(ld.calculate_health(weapon_data)), weapon_expected,
+                f"List size ({len(weapon_data)}) != {weapon_expected}")
+
+    all_data = ld.load_data(file_name, ("All", "All"))
+    all_expected = len(ld.load_data(file_name, ("All", "All")))
+    check.equal(len(ld.calculate_health(all_data)), all_expected, f"List size ({len(all_data)}) != {all_expected}")
+
+    #
+    #
+    # test that the function returns an empty list when it is called whith an empty list
+    check.equal(len(ld.calculate_health([])), 0, "List size != 0 ; list is not empty")
+
+    #
+    #
+    # test that the function inscrememnts the number of keys of the dictionary inside the list by one  (5 different
+    # test cases required)
+
+
+    #
+    #
+    # test that the Health value is properly calculated  (5 different test cases required)
+    health_list = ld.calculate_health(all_data)
+
 
     check.summary()
-    #Complete the function with your test cases
-    
-    #test that the function does not change the lenght of the list provided as input parameter (5 different test cases required)
-    
-    #test that the function returns an empty list when it is called whith an empty list
-    
-    
-    #test that the function inscrememnts the number of keys of the dictionary inside the list by one  (5 different test cases required)
-    
-    
-    #test that the Health value is properly calculated  (5 different test cases required)
-    
-    
-   
-    
-    check.summary()
+
 
 
 # Do NOT include a main script in your submission
