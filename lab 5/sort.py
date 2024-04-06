@@ -98,27 +98,35 @@ def sort_characters_intelligence_selection(characters: list, order: str) -> list
 def sort_characters_health_insertion(lst: list, word: str) -> list:
     """Precondition: word = 'A' or 'D', lst is a list of dictionaries
     Returns a sorted list of dictionaries based on the given ascending or descending input using the health value of each dictionary.
+    >>> sort_characters_health_insertion([{'Weapon': 'Pig', 'Health':'33'},{'Weapon': Sword, 'Health': 30},{'Weapon': 'Cane','Health': 2.5}], 'A')
+    [{'Weapon': 'Cane','Health': 2.5},{'Weapon': Sword, 'Health': 30},{'Weapon': 'Pig', 'Health':'33'}]
+    >>> sort_characters_health_insertion([{Wea},{}],'Nothing')
+    'Health key not in dictionary...'
+    [{'Weapon': 'Pig', 'Health':'33'},{'Weapon': Sword, 'Health': 30},{'Weapon': 'Cane','Health': 2.5}]
+    >>> sort_characters_health_insertion([{'Weapon': Sword, 'Health': 30},{'Weapon': 'Pig', 'Health':'33'},{'Weapon': 'Cane','Health': 2.5}, {'Weapon': 'Axe', 'Health': 3.2}], 'D')
+    [{'Weapon': 'Pig', 'Health':'33'},{'Weapon': Sword, 'Health': 30},{'Weapon': 'Axe', 'Health': 3.2},{'Weapon': 'Cane','Health': 2.5}]
     """
-    try:  # check if the word element
+    try: #check if the word element
         word = word.capitalize()
         for i in range(1, len(lst)):
-            temp = lst[i]
-            key = lst[i]['Health']
-            j = i - 1
-            if (word == 'A'):
-                while (j >= 0 and key < lst[j]['Health']):
-                    lst[j + 1] = lst[j]
-                    j -= 1
-                lst[j + 1] = temp
-            elif (word == 'D'):
-                while (j >= 0 and key > lst[j]['Health']):
-                    lst[j + 1] = lst[j]
-                    j -= 1
-            lst[j + 1] = temp
+                temp = lst[i]
+                key = lst[i]['Health']
+                j = i - 1
+                if(word == 'A'):
+                    while(j >= 0 and key < lst[j]['Health']):
+                        lst[j+1] = lst[j]
+                        j -= 1
+                    lst[j+1] = temp
+                elif(word == 'D'):
+                    while(j >= 0 and key > lst[j]['Health']):
+                        lst[j+1] = lst[j]
+                        j -= 1
+                lst[j+1] = temp
         return lst
     except KeyError:
         print("Health key not in dictionary...")
         return lst
+
 
 
 # ==========================================#
