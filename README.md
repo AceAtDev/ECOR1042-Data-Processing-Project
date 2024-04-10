@@ -19,10 +19,10 @@ See tutorial video link below.
 + https://drive.google.com/file/d/17QGHaP9EGGp29OI0Z0F8KHIEGy3sMT1c/view
 
 ## Credits/Contributions:
-@Mohamed Elshoubky - character_luck_list.py, sort_characters_intelligence_selection.py, batch_UI.py
-@Jett Miyasaki - character_weapon_list.py, sort_characters_health_insertion.py, text_UI.py
-@Victoria Salomon - character_occupation_list.py, sort_characters_agility_bubble.py, histogram.py
-@Rehma Muzammil - character_strength_list.py, sort_characters_armor_bubble.py, curve_fit.py
++ @Mohamed Elshoubky - character_luck_list.py, sort_characters_intelligence_selection.py, batch_UI.py
++ @Jett Miyasaki - character_weapon_list.py, sort_characters_health_insertion.py, text_UI.py
++ @Victoria Salomon - character_occupation_list.py, sort_characters_agility_bubble.py, histogram.py
++ @Rehma Muzammil - character_strength_list.py, sort_characters_armor_bubble.py, curve_fit.py
 
 ## License
 MIT License
